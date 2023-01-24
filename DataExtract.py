@@ -11,15 +11,15 @@ def DataExtract(features: list, season_from: int):
     df = pd.DataFrame()
 
     for year in np.arange(season_from,2023):
-        season = str(year) + '-' + "{:0>2}".format(str((year + 1) % 100))
+        season = str(year) + '-' + str((year + 1) % 100).zfill(2)
         # Limit the period to calculate stats so that it is before All-Star
         date_from = str(year) + '-10-01'
-        date_to = str(year + 1) + '-01-15'
+        date_to = str(year + 1) + '-01-31'
 
         df_season = LeagueDashPlayerStats(season=season, per_mode_detailed='Totals', 
                                           date_from_nullable=date_from, date_to_nullable=date_to, 
                                           league_id_nullable='00', season_segment_nullable='Pre All-Star', timeout=100).get_data_frames()[0]
-        df_season = df_season[df_season['FG3M']>=30] # Limit the dataset to purify it
+        df_season = df_season[df_season['FG3M_RANK']<=150] # Limit the dataset to purify it
         df_season = df_season.sort_values('FG3_PCT_RANK')[features]
         
         df_season['Season'] = season
@@ -32,7 +32,7 @@ def DataExtract(features: list, season_from: int):
 if __name__ == '__main__':
     features = ['PLAYER_ID', 'PLAYER_NAME', 'TEAM_ABBREVIATION', 'GP', 'W_PCT', 
             'MIN', 'FG3M', 'FG3A', 'FG3_PCT', 'PTS', 'PLUS_MINUS', 'NBA_FANTASY_PTS']
-    season_from = 2002
+    season_from = 2010
     DataExtract(features, season_from)
 
 
