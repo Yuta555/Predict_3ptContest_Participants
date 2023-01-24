@@ -4,5 +4,8 @@ Since a Japanese NBA player, Yuta Watanabe, has ranked top in 3pt percentage in 
 The techniques I used are below.
 
 * Traditional Machine Learning Models
+  ** Logistic Regression
+  ** KNN
+  ** 
 * Boosting 
 * Stacking
