@@ -17,6 +17,11 @@ I finally compared the results of the techniques below.
 The dataset I used was very imbalanced since less than 10 playes can participate in the contest every year while hundreds of players are playing in NBA league. Hence, I limited the data into only players whose FG3M_RANK in every season are less than or equal to 150, and I applied RandomOverSampling to deal with the imbalance.
 Although I chose "precision score" as a metric because I'm interested in predicting participants accurately and avoiding False Positive, the precision score didn't exceed 0.4 meybe due to the imbalanced data.
 
-![image](https://user-images.githubusercontent.com/59324565/214356712-33da538f-5a84-451f-b038-49e58d1c1ee3.png)
+### DataExtract.py
+this module is for extracting stats data by player and season. I extracte  Using [nba_api](https://github.com/swar/nba_api)
 
+## Output
+I tried several models and I evaluated each player in the way that a player who is evaluated as a possible participant by more models is more likely to be participants, that is, the larger "sum" column is, the more likely to be a participant I consider the player is.
+
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/59324565/214356979-8b30ab55-8468-486c-89dc-f54ef507fc44.png">
 
