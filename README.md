@@ -1,5 +1,5 @@
 # Predict_3ptContest_Participants
-Since a Japanese NBA player, Yuta Watanabe, has ranked top in 3pt percentage in this season, I am interested in the participants in this year's 3 point contest. As of end of Janualy 2023, I would like to predict the participants, extracting players data by [nba_api](https://github.com/swar/nba_api) and former participants by [ReamGM](https://basketball.realgm.com/nba/allstar/three_point/players), and using Machine Learning techniques for classification from traditional models like Logistic Regression and SVM to Boosting/Stacking methods.
+Since a Japanese NBA player, Yuta Watanabe, has temorarily ranked top in 3pt percentage in this season, I am interested in who will become participants in this year's 3 point contest. I would like to predict the participants as of end of Janualy 2023, extracting players data by [nba_api](https://github.com/swar/nba_api) and former participants by [ReamGM](https://basketball.realgm.com/nba/allstar/three_point/players), and using Machine Learning techniques for classification from traditional models like Logistic Regression and SVM to Boosting/Stacking methods.
 
 ## Models/Methods I utilized
 I finally compared the results of the techniques below.
