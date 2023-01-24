@@ -1,6 +1,13 @@
 # Predict_3ptContest_Participants
 Since a Japanese NBA player, Yuta Watanabe, has temorarily ranked top in 3pt percentage in this season, I am interested in who will become participants in this year's 3 point contest. I would like to predict the participants as of end of Janualy 2023, extracting players data by [nba_api](https://github.com/swar/nba_api) and former participants by [ReamGM](https://basketball.realgm.com/nba/allstar/three_point/players), and using Machine Learning techniques for classification from traditional models like Logistic Regression and SVM to Boosting/Stacking methods.
 
+## Dataset
+The dataset I used was very imbalanced since less than 10 playes can participate in the contest every year while hundreds of players are playing in NBA league. Hence, I limited the data into only players whose FG3M_RANK in every season are less than or equal to 150, that is, top 150 players in FG3M by season, and also I applied RandomOverSampling to deal with the imbalance. As a result, the dataset I finally used for train/test is N=1525 (including 77 former participants), and data in 2022-23 season for which I would like to predict the participants is N=150.
+
+Although I chose "precision score" as a metric because I'm interested in predicting participants accurately and avoiding False Positive, the precision score didn't exceed 0.4 meybe due to the imbalanced data.
+
+As a feature variable, I finally chose "GP"(Games Played),  "FG3M"(3-Point Field Goals Made), "W-PCT"(Winning Percentage), "FG3_PCT"(3-Point Field Goals Percentage) and "FGM"(Field Goals Made), according to the result of feature selection methods like XGBRegressor and Correlation with target variable. Though I was worried about the colinearity between FG3M and FGM, it seems not to be big problem considering the correlation of them, thus I didn't alter the variables.
+
 ## Models/Methods I utilized
 I finally compared the results of the techniques below.
 
@@ -13,10 +20,7 @@ I finally compared the results of the techniques below.
 * Stacking
 * (Appendix)Neural Network
 
-## Explanation for dataset and files I created
-The dataset I used was very imbalanced since less than 10 playes can participate in the contest every year while hundreds of players are playing in NBA league. Hence, I limited the data into only players whose FG3M_RANK in every season are less than or equal to 150, that is, top 150 players in FG3M by season, and I applied RandomOverSampling to deal with the imbalance.
-Although I chose "precision score" as a metric because I'm interested in predicting participants accurately and avoiding False Positive, the precision score didn't exceed 0.4 meybe due to the imbalanced data.
-
+## Explanation for modules I created
 ### DataExtract.py
 This module is for extracting stats data by player and season, using [nba_api](https://github.com/swar/nba_api). I narrowed down the sample dataset to players who ranked within top 150 with respect to FG3M by season. Moreover, I added a constraint for the extraction such as start/end date gathering the data so that start data is Octorber 1 and end date is January 23 in every season.
 
