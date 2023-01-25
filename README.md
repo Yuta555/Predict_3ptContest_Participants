@@ -8,7 +8,7 @@ Although I chose "precision score" as a metric because I'm interested in predict
 
 As a feature variable, I finally chose "GP"(Games Played),  "FG3M"(3-Point Field Goals Made), "W-PCT"(Winning Percentage), "FG3_PCT"(3-Point Field Goals Percentage) and "FGM"(Field Goals Made), according to the result of feature selection methods like XGBRegressor and Correlation with target variable. Though I was worried about the colinearity between FG3M and FGM, it seems not to be big problem considering the correlation of them, thus I didn't alter the variables.
 
-## Models/Methods I utilized
+## Models/Methods
 I finally compared the results of the techniques below.
 
 * Traditional Machine Learning Models
@@ -19,6 +19,7 @@ I finally compared the results of the techniques below.
 * Boosting 
 * Stacking
 * (Appendix)Neural Network
+
 
 ## Explanation for modules I created
 ### DataExtract.py
