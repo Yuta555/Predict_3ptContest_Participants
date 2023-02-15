@@ -3,7 +3,7 @@ import pandas as pd
 from nba_api.stats.endpoints import LeagueDashPlayerStats
 
 # Extract data using nba_api
-def DataExtract(features: list, season_from: int):
+def DataExtract(features: list, season_from: int, enddate='01-31'):
     '''
     features: the list of column names you want to extract
     season_from: start season of dataset used to learn ML model
@@ -14,7 +14,7 @@ def DataExtract(features: list, season_from: int):
         season = str(year) + '-' + str((year + 1) % 100).zfill(2)
         # Limit the period to calculate stats so that it is before All-Star
         date_from = str(year) + '-10-01'
-        date_to = str(year + 1) + '-01-23'
+        date_to = str(year + 1) + '-' + enddate
 
         df_season = LeagueDashPlayerStats(season=season, per_mode_detailed='Totals', 
                                           date_from_nullable=date_from, date_to_nullable=date_to, 
