@@ -37,3 +37,7 @@ I tried several models and I evaluated each player in the way that a player who 
 
 <img width="954" alt="image" src="https://user-images.githubusercontent.com/59324565/214356979-8b30ab55-8468-486c-89dc-f54ef507fc44.png">
 
+* After release of participants for the 2023 contest, I checked how accurately I had predcted them.
+* As a result, 3 out of 8 participants were predicted as a participant in my prediction.
+* Logistic Regression mdoel correctly predicted 8 out of 8 participants, so did SVC and GNB 7 out of 8.
+
